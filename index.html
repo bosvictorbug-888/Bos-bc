@@ -1,100 +1,133 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BOS VICTOR — Donasi</title>
+
+  <!-- Google Fonts Latin Style -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
     body {
-      background: url("https://i.imgur.com/1SdYrHS.jpeg") center center fixed;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url("https://i.imgur.com/1SdYrHS.jpeg") no-repeat center center fixed;
       background-size: cover;
       color: white;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      font-family: 'Cinzel Decorative', cursive;
-    }
-
-    .profile {
       text-align: center;
-      background: rgba(0, 0, 0, 0.55);
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.8);
+      overflow-x: hidden;
     }
 
-    .profile img {
-      width:160px;
-      height:160px;
-      border-radius:50%;
-      border:4px solid rgba(255,255,255,0.6);
-      margin-bottom:15px;
-      box-shadow:0 0 25px #ff0099,0 0 50px #ff0099,0 0 75px #ff0099;
-      transition:0.4s;
+    .container {
+      margin: 80px auto;
+      max-width: 420px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7); /* background hitam transparan */
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
     }
 
-    .profile img:hover {
-      transform: scale(1.05) rotate(2deg);
-      box-shadow:0 0 30px #00f2fe,0 0 60px #4facfe,0 0 90px #00f2fe;
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      animation: glow 2s infinite alternate, float 4s ease-in-out infinite;
     }
 
     h1 {
-      font-size: 34px;
-      margin-bottom: 10px;
-      text-shadow: 0 0 15px #ff0099, 0 0 30px #ff4fae;
+      font-size: 42px;
+      margin: 20px 0 10px;
+      font-family: "Cinzel Decorative", serif; /* gaya latin */
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+      animation: glowText 2s infinite alternate;
     }
 
     p {
       font-size: 16px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+      margin-bottom: 30px;
+      font-family: "Cinzel Decorative", serif; /* gaya latin */
+      text-shadow: 0 0 10px #00ffff;
+      animation: fadeIn 3s infinite alternate;
+    }
+
+    a {
+      text-decoration: none; /* hilangin garis bawah */
     }
 
     .btn {
-      display:block;
-      width:100%;
-      max-width: 280px;
-      margin:10px auto;
-      padding:15px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:600;
-      background: linear-gradient(135deg, #ff6a00, #ee0979);
-      color:white;
-      transition:0.3s;
-      box-shadow:0 5px 15px rgba(0,0,0,0.3);
+      display: block;
+      margin: 15px auto;
+      padding: 15px 25px;
+      width: 260px;
+      border-radius: 30px;
+      border: none;
+      font-size: 18px;
+      font-family: "Cinzel Decorative", serif;
+      font-weight: bold;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      box-shadow: 0px 0px 20px rgba(255, 0, 150, 0.8);
+      animation: pulse 2s infinite;
+      transition: transform 0.2s;
     }
 
     .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transform: scale(1.1) rotate(-2deg);
     }
 
-    /* Tombol WhatsApp hijau */
-    .btn-wa {
-      background: linear-gradient(135deg, #25d366, #128c7e);
+    /* Warna Tombol */
+    .btn.saweria { background: linear-gradient(45deg, #ff416c, #ff4b2b); }
+    .btn.youtube { background: linear-gradient(45deg, #ff0000, #cc0000); }
+    .btn.wa { background: linear-gradient(45deg, #00c853, #009624); }
+
+    /* Animasi */
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; }
+      to   { box-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
     }
-    .btn-wa:hover {
-      box-shadow: 0 8px 20px rgba(0,255,128,0.5);
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; }
+      to   { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.4; }
+      to   { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <!-- PROFILE -->
-  <div class="profile">
-    <img src="https://i.imgur.com/1SdYrHS.jpeg" alt="BOS VICTOR">
+  <div class="container">
+    <img src="https://i.imgur.com/1SdYrHS.jpeg" class="profile-img" />
     <h1>BOS VICTOR</h1>
-    <p>Selamat datang! Terima kasih atas support dan donasimu 🙏</p>
+    <p>SELAMAT DATANG! TERIMA KASIH ATAS SUPPORT DAN DONASIMU 🙏</p>
 
-    <a href="https://saweria.co/Bossvictor" class="btn" target="_blank">Donet Saweria 🎉</a>
-    <a href="https://youtube.com/@bosvictortutorial?si=XM1I5RV0hjRo-eKz" class="btn" target="_blank">YouTube 📺</a>
-    <a href="https://wa.me/6283821596705?text=BOS%20SAYA%20ORDER%20BC!!" class="btn btn-wa" target="_blank">ORDER BC LANGSUNG 📲</a>
+    <a href="https://saweria.co/Bossvictor" target="_blank">
+      <button class="btn saweria">DONET SAWERIA 🎉</button>
+    </a>
+
+    <a href="https://youtube.com/@bosvictortutorial?si=XM1I5RV0hjRo-eKz" target="_blank">
+      <button class="btn youtube">YOUTUBE 📺</button>
+    </a>
+
+    <a href="https://wa.me/6283821596705?text=BOS%20SAYA%20ORDER%20BC!!" target="_blank">
+      <button class="btn wa">ORDER BC LANGSUNG 📲</button>
+    </a>
   </div>
 </body>
 </html>
